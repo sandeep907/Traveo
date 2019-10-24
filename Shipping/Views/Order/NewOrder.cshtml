@@ -1,0 +1,194 @@
+﻿@model Shipping.ViewModels.Orders.OrderViewModel
+@{
+	int RoleID = Shipping.Utilities.SessionWrapper.Get<int>(Shipping.Utilities.AppConstant.RoleId);
+}
+@using (Html.BeginForm("AddOrder", "Order", FormMethod.Post, new { @id = "SubmitUser" }))
+{
+	@Html.HiddenFor(m => m.OrderId, Model.OrderId)
+<section class="content">
+	<!-- Default box -->
+	@if (Model.OrderId > 0)
+	{
+		<div class="row">
+			<div class="col-md-10"></div>
+			<div class="col-md-2">
+				<a class="btn btn-block btn-primary btn-lg" href="~/Order/Status/@Model.OrderId">Status</a>
+			</div>
+		</div>
+	}
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Order</h3>
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+							title="Collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+						<i class="fa fa-times"></i>
+					</button>
+				</div>
+			</div>
+			<div class="box">
+				<div class="box-header ui-sortable-handle" style="cursor: move;">
+					<i class="fa fa-envelope"></i>
+					<h3 class="box-title">Courier Details</h3>
+				</div>
+				<!-- form start -->
+
+				@if (RoleID == 1)
+				{
+					<div class="row box-body">
+						<div class="col-md-3 form-group ">
+							<label for="OrderNo">Order No</label>
+							@Html.TextBoxFor(m => m.OrderNo, new { @name = "OrderNo", @id = "OrderNo", @class = "form-control", @placeholder = "Order No", @autocomplete = "off" })
+							@Html.ValidationMessageFor(m => m.OrderNo, "", new { @class = "label label-danger" })
+
+						</div>
+						<div class="col-md-3 form-group">
+							<label for="WayBillNo">Way Bill No</label>
+							@Html.TextBoxFor(m => m.WayBillNo, new { @name = "WayBillNo", @id = "WayBillNo", @class = "form-control", @placeholder = "Way Bill Number", @autocomplete = "off" })
+							@Html.ValidationMessageFor(m => m.WayBillNo, "", new { @class = "label label-danger" })
+						</div>
+						<div class="col-md-3 form-group">
+							<label for="CourierName">Courier Name</label>
+							@Html.TextBoxFor(m => m.CourierName, new { @name = "CourierName", @id = "CourierName", @class = "form-control", @placeholder = "CourierName", @autocomplete = "off" })
+							@Html.ValidationMessageFor(m => m.CourierName, "", new { @class = "label label-danger" })
+						</div>
+						<div class="col-md-3 form-group ">
+							<label for="CurrentStatus">Order Status</label>
+							@Html.DropDownListFor(m => m.CurrentStatus, new SelectList(Model.lstOrderStatus, "ID", "Name", Model.lstOrderStatus), optionLabel: "Select Status", htmlAttributes: new { @id = "StatusID", @name = "StatusID", @class = "form-control" })
+							@Html.ValidationMessageFor(m => m.CurrentStatus, "", new { @class = "label label-danger" })
+
+						</div>
+					</div>
+				}
+			</div>
+			<br />
+			<br />
+			<div class="box">
+				<div class="box-header ui-sortable-handle" style="cursor: move;">
+					<i class="fa fa-user-secret"></i>
+					<h3 class="box-title">Agent Details</h3>
+				</div>
+				<!-- form start -->
+				<div class="row box-body">
+					<div class="col-md-4 form-group ">
+						<label for="OrderNo">Agent Name</label>
+						@Html.TextBoxFor(m => m.AgentName, new { @name = "AgentName", @id = "AgentName", @class = "form-control", @placeholder = "Agent Name", @autocomplete = "off", @disabled = "disabled" })
+						@Html.ValidationMessageFor(m => m.AgentName, "", new { @class = "label label-danger" })
+
+					</div>
+					<div class="col-md-4 form-group">
+						<label for="WayBillNo">Mobile Number</label>
+						@Html.TextBoxFor(m => m.MobileNo, new { @name = "MobileNo", @id = "MobileNo", @class = "form-control", @placeholder = "Mobile Number", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "label label-danger" })
+					</div>
+					<div class="col-md-4 form-group date">
+						<label for="CourierName">Date</label>
+						@Html.TextBoxFor(m => m.Date, new { @name = "Date", @id = "Date", @class = "form-control datepicker", @placeholder = "Date", @autocomplete = "off", @disabled = "disabled" })
+						@Html.ValidationMessageFor(m => m.Date, "", new { @class = "label label-danger" })
+					</div>
+				</div>
+
+			</div>
+			<br />
+			<br />
+			<div class="box">
+				<div class="box-header ui-sortable-handle" style="cursor: move;">
+					<i class="glyphicon glyphicon-user"></i>
+					<h3 class="box-title">Consignee Details</h3>
+				</div>
+				<!-- form start -->
+				<div class="row box-body">
+					<div class="col-md-3 form-group ">
+						<label for="ConsigneeName">Consignee Name</label>
+						@Html.TextBoxFor(m => m.ConsigneeName, new { @name = "ConsigneeName", @id = "ConsigneeName", @class = "form-control", @placeholder = "Consignee Name", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.ConsigneeName, "", new { @class = "label label-danger" })
+
+					</div>
+					<div class="col-md-3 form-group">
+						<label for="Consignee">Consignee Number</label>
+						@Html.TextBoxFor(m => m.ConsigneeNumber, new { @name = "ConsigneeNumber", @id = "ConsigneeNumber", @class = "form-control", @placeholder = "Consignee Number", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.ConsigneeNumber, "", new { @class = "label label-danger" })
+					</div>
+					<div class="col-md-3 form-group">
+						<label for="OrderNo">Consignee Alternate PhoneNo</label>
+						@Html.TextBoxFor(m => m.AlternatePhoneNo, new { @name = "AlternatePhoneNo", @id = "AlternatePhoneNo", @class = "form-control", @placeholder = "Order Amount", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.AlternatePhoneNo, "", new { @class = "label label-danger" })
+					</div>
+					<div class="col-md-3 form-group ">
+						<label for="OrderNo">Order Amount</label>
+						@Html.TextBoxFor(m => m.Amount, new { @name = "Amount", @id = "Amount", @class = "form-control", @placeholder = "Order Amount", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.Amount, "", new { @class = "label label-danger" })
+
+					</div>
+				</div>
+				<div class="row box-body">
+					<div class="col-md-6 form-group ">
+						<label for="ConsigneeName">AddressLine1</label>
+						@Html.TextAreaFor(m => m.AddressLine1, new { @name = "AddressLine1", @id = "AddressLine1", @class = "form-control", @placeholder = "Address Line1", @autocomplete = "off", @rows = "5" })
+						@Html.ValidationMessageFor(m => m.AddressLine1, "", new { @class = "label label-danger" })
+					</div>
+					<div class="col-md-6 form-group">
+						<label for="CourierName">Product</label>
+						@Html.DropDownListFor(m => m.Product, new SelectList(Model.lstProducts, "Name", "Name", Model.lstProducts), optionLabel: "Select Product", htmlAttributes: new { @id = "ProductID", @name = "ProductID", @class = "form-control" })
+						@Html.ValidationMessageFor(m => m.District, "", new { @class = "label label-danger" })
+					</div>
+
+				</div>
+				<div class="row box-body">
+					<div class="col-md-4 form-group ">
+						<label for="ConsigneeName">Post Name</label>
+						@Html.TextBoxFor(m => m.Post, new { @name = "Post", @id = "Post", @class = "form-control", @placeholder = "Post Name", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.Post, "", new { @class = "label label-danger" })
+					</div>
+					<div class="col-md-4 form-group">
+						<label for="Consignee">Taluk Name</label>
+						@Html.TextBoxFor(m => m.Taluk, new { @name = "Taluk", @id = "Taluk", @class = "form-control", @placeholder = "Taluk Name", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.Taluk, "", new { @class = "label label-danger" })
+					</div>
+					<div class="col-md-4 form-group">
+						<label for="CourierName">District</label>
+						@Html.DropDownListFor(m => m.District, new SelectList(Model.lstDistricts, "Name", "Name", Model.lstDistricts), optionLabel: "Select District", htmlAttributes: new { @id = "DistrictID", @name = "StatusID", @class = "form-control" })
+						@Html.ValidationMessageFor(m => m.District, "", new { @class = "label label-danger" })
+					</div>
+				</div>
+				<div class="row box-body">
+					<div class="col-md-4 form-group ">
+						<label for="Pincode">Consignee Pincode</label>
+						@Html.TextBoxFor(m => m.Pincode, new { @name = "Pincode", @id = "Pincode", @class = "form-control", @placeholder = "Pincode", @autocomplete = "off" })
+						@Html.ValidationMessageFor(m => m.Pincode, "", new { @class = "label label-danger" })
+
+					</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="box-header ui-sortable-handle" style="cursor: move;">
+					<i class="glyphicon glyphicon-shopping-cart"></i>
+					<h3 class="box-title">Order Status</h3>
+				</div>
+				<!-- form start -->
+				<div class="row box-body">
+					<div class="col-md-12 form-group">
+						<label for="Comment">Comment</label>
+						@Html.TextAreaFor(m => m.Comment, new { @name = "Comment", @id = "Comment", @class = "form-control", @placeholder = "Comment", @autocomplete = "off", @rows = "5" })
+						@Html.ValidationMessageFor(m => m.Comment, "", new { @class = "label label-danger" })
+					</div>
+				</div>
+			</div>
+			<div class="box-body">
+
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+			</div>
+			<div class="box-footer">
+				surycourier  private limited
+			</div>
+			<!-- /.box-footer-->
+		</div>
+
+		<!-- /.box -->
+	</section>
+
+}

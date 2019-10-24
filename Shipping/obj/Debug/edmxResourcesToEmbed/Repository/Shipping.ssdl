@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShippingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Districts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="50" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MTEmail">
+    <Key>
+      <PropertyRef Name="EmaidID" />
+    </Key>
+    <Property Name="EmaidID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MTLoginMaster">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserEmailAddress" Type="varchar" MaxLength="250" />
+    <Property Name="UserName" Type="varchar" MaxLength="250" />
+    <Property Name="ImageUrl" Type="nchar" MaxLength="100" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="500" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Flag" Type="char" MaxLength="1" />
+    <Property Name="IsLogin" Type="int" />
+    <Property Name="LastLogin" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MTOrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="50" />
+    <Property Name="StatusDescription" Type="varchar" MaxLength="50" />
+    <Property Name="UID" Type="int" />
+    <Property Name="UIDDate" Type="date" />
+    <Property Name="EID" Type="int" />
+    <Property Name="EIDDate" Type="date" />
+  </EntityType>
+  <EntityType Name="MTRoleMaster">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleDescription" Type="varchar" MaxLength="250" />
+    <Property Name="EID" Type="int" />
+    <Property Name="EIDDate" Type="datetime" />
+    <Property Name="UID" Type="int" />
+    <Property Name="UIDDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNo" Type="nvarchar(max)" />
+    <Property Name="WayBillNo" Type="nvarchar(max)" />
+    <Property Name="CourierName" Type="nvarchar(max)" />
+    <Property Name="CurrentStatus" Type="int" />
+    <Property Name="AgentName" Type="nvarchar(max)" />
+    <Property Name="ConsigneeName" Type="nvarchar(max)" />
+    <Property Name="ConsigneeNumber" Type="nvarchar(max)" />
+    <Property Name="AddressLine1" Type="nvarchar(max)" />
+    <Property Name="AlternatePhoneNo" Type="nvarchar(max)" />
+    <Property Name="Post" Type="nvarchar(max)" />
+    <Property Name="Taluk" Type="nvarchar(max)" />
+    <Property Name="District" Type="nvarchar(max)" />
+    <Property Name="Pincode" Type="nvarchar(max)" />
+    <Property Name="MobileNo" Type="nvarchar(max)" />
+    <Property Name="Product" Type="nvarchar(max)" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="EID" Type="int" />
+    <Property Name="EIDDate" Type="date" />
+    <Property Name="UID" Type="int" />
+    <Property Name="UIDDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="30" />
+    <Property Name="price" Type="int" />
+  </EntityType>
+  <EntityType Name="Remarks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="UID" Type="int" />
+    <Property Name="UIDDate" Type="date" />
+    <Property Name="EID" Type="int" />
+    <Property Name="EIDDate" Type="date" />
+  </EntityType>
+  <EntityType Name="SentEmail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="To" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailId" Type="int" Nullable="false" />
+    <Property Name="CC" Type="varchar" MaxLength="50" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="Body" Type="varchar(max)" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Shipping.dbo.OrdersView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrdersView">
+    <Key>
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="OrderNo" Type="nvarchar(max)" />
+    <Property Name="WayBillNo" Type="nvarchar(max)" />
+    <Property Name="CourierName" Type="nvarchar(max)" />
+    <Property Name="CurrentStatus" Type="int" />
+    <Property Name="AgentName" Type="nvarchar(max)" />
+    <Property Name="ConsigneeName" Type="nvarchar(max)" />
+    <Property Name="ConsigneeNumber" Type="nvarchar(max)" />
+    <Property Name="AddressLine1" Type="nvarchar(max)" />
+    <Property Name="AlternatePhoneNo" Type="nvarchar(max)" />
+    <Property Name="Post" Type="nvarchar(max)" />
+    <Property Name="Taluk" Type="nvarchar(max)" />
+    <Property Name="District" Type="nvarchar(max)" />
+    <Property Name="Pincode" Type="nvarchar(max)" />
+    <Property Name="MobileNo" Type="nvarchar(max)" />
+    <Property Name="Product" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="nvarchar(max)" />
+    <Property Name="UID" Type="int" />
+    <Property Name="UIDDate" Type="date" />
+    <Property Name="EID" Type="int" />
+    <Property Name="EIDDate" Type="date" />
+    <Property Name="Date" Type="date" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="250" />
+    <Property Name="UserEmailAddress" Type="varchar" MaxLength="250" />
+    <Property Name="ImageUrl" Type="nchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <Function Name="UserMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iptFlagID" Type="tinyint" Mode="In" />
+    <Parameter Name="ipiUserID" Type="int" Mode="In" />
+    <Parameter Name="ipiImageUrl" Type="nchar" Mode="In" />
+    <Parameter Name="ipvUserEmailID" Type="varchar" Mode="In" />
+    <Parameter Name="ipvUserName" Type="varchar" Mode="In" />
+    <Parameter Name="ipvUserPassword" Type="varchar" Mode="In" />
+    <Parameter Name="iroleId" Type="int" Mode="In" />
+    <Parameter Name="ipvFlag" Type="varchar" Mode="In" />
+    <Parameter Name="ipiCount" Type="int" Mode="In" />
+    <Parameter Name="ipiErrorID" Type="int" Mode="InOut" />
+    <Parameter Name="ipvResult" Type="varchar" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="ShippingModelStoreContainer">
+    <EntitySet Name="Districts" EntityType="Self.Districts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MTEmail" EntityType="Self.MTEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MTLoginMaster" EntityType="Self.MTLoginMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MTOrderStatus" EntityType="Self.MTOrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MTRoleMaster" EntityType="Self.MTRoleMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Remarks" EntityType="Self.Remarks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SentEmail" EntityType="Self.SentEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersView" EntityType="Self.OrdersView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrdersView].[OrderId] AS [OrderId], 
+    [OrdersView].[OrderNo] AS [OrderNo], 
+    [OrdersView].[WayBillNo] AS [WayBillNo], 
+    [OrdersView].[CourierName] AS [CourierName], 
+    [OrdersView].[CurrentStatus] AS [CurrentStatus], 
+    [OrdersView].[AgentName] AS [AgentName], 
+    [OrdersView].[ConsigneeName] AS [ConsigneeName], 
+    [OrdersView].[ConsigneeNumber] AS [ConsigneeNumber], 
+    [OrdersView].[AddressLine1] AS [AddressLine1], 
+    [OrdersView].[AlternatePhoneNo] AS [AlternatePhoneNo], 
+    [OrdersView].[Post] AS [Post], 
+    [OrdersView].[Taluk] AS [Taluk], 
+    [OrdersView].[District] AS [District], 
+    [OrdersView].[Pincode] AS [Pincode], 
+    [OrdersView].[MobileNo] AS [MobileNo], 
+    [OrdersView].[Product] AS [Product], 
+    [OrdersView].[Amount] AS [Amount], 
+    [OrdersView].[UID] AS [UID], 
+    [OrdersView].[UIDDate] AS [UIDDate], 
+    [OrdersView].[EID] AS [EID], 
+    [OrdersView].[EIDDate] AS [EIDDate], 
+    [OrdersView].[Date] AS [Date], 
+    [OrdersView].[IsDelete] AS [IsDelete], 
+    [OrdersView].[UserId] AS [UserId], 
+    [OrdersView].[UserName] AS [UserName], 
+    [OrdersView].[UserEmailAddress] AS [UserEmailAddress], 
+    [OrdersView].[ImageUrl] AS [ImageUrl], 
+    [OrdersView].[RoleId] AS [RoleId]
+    FROM [dbo].[OrdersView] AS [OrdersView]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShippingModelStoreContainer" CdmEntityContainer="ShippingEntities">
+    <EntitySetMapping Name="MTEmails">
+      <EntityTypeMapping TypeName="ShippingModel.MTEmail">
+        <MappingFragment StoreEntitySet="MTEmail">
+          <ScalarProperty Name="EmaidID" ColumnName="EmaidID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MTRoleMasters">
+      <EntityTypeMapping TypeName="ShippingModel.MTRoleMaster">
+        <MappingFragment StoreEntitySet="MTRoleMaster">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="EIDDate" ColumnName="EIDDate" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="UIDDate" ColumnName="UIDDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SentEmails">
+      <EntityTypeMapping TypeName="ShippingModel.SentEmail">
+        <MappingFragment StoreEntitySet="SentEmail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="CC" ColumnName="CC" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UserMaster" FunctionName="ShippingModel.Store.UserMaster" />
+    <EntitySetMapping Name="MTOrderStatus">
+      <EntityTypeMapping TypeName="ShippingModel.MTOrderStatu">
+        <MappingFragment StoreEntitySet="MTOrderStatus">
+          <ScalarProperty Name="EIDDate" ColumnName="EIDDate" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="UIDDate" ColumnName="UIDDate" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MTLoginMasters">
+      <EntityTypeMapping TypeName="ShippingModel.MTLoginMaster">
+        <MappingFragment StoreEntitySet="MTLoginMaster">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="IsLogin" ColumnName="IsLogin" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserEmailAddress" ColumnName="UserEmailAddress" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="ShippingModel.District">
+        <MappingFragment StoreEntitySet="Districts">
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="ShippingModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Remarks">
+      <EntityTypeMapping TypeName="ShippingModel.Remark">
+        <MappingFragment StoreEntitySet="Remarks">
+          <ScalarProperty Name="EIDDate" ColumnName="EIDDate" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="UIDDate" ColumnName="UIDDate" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ShippingModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="UIDDate" ColumnName="UIDDate" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="EIDDate" ColumnName="EIDDate" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Taluk" ColumnName="Taluk" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="AlternatePhoneNo" ColumnName="AlternatePhoneNo" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="ConsigneeNumber" ColumnName="ConsigneeNumber" />
+          <ScalarProperty Name="ConsigneeName" ColumnName="ConsigneeName" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="CurrentStatus" ColumnName="CurrentStatus" />
+          <ScalarProperty Name="CourierName" ColumnName="CourierName" />
+          <ScalarProperty Name="WayBillNo" ColumnName="WayBillNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersViews">
+      <EntityTypeMapping TypeName="ShippingModel.OrdersView">
+        <MappingFragment StoreEntitySet="OrdersView">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="UserEmailAddress" ColumnName="UserEmailAddress" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="EIDDate" ColumnName="EIDDate" />
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="UIDDate" ColumnName="UIDDate" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Taluk" ColumnName="Taluk" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="AlternatePhoneNo" ColumnName="AlternatePhoneNo" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="ConsigneeNumber" ColumnName="ConsigneeNumber" />
+          <ScalarProperty Name="ConsigneeName" ColumnName="ConsigneeName" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="CurrentStatus" ColumnName="CurrentStatus" />
+          <ScalarProperty Name="CourierName" ColumnName="CourierName" />
+          <ScalarProperty Name="WayBillNo" ColumnName="WayBillNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

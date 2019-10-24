@@ -1,0 +1,126 @@
+﻿@model Shipping.ViewModels.Account.UserSeachViewModel
+@{var slNo = 1;}
+<style>
+    .imgsize {
+        height: 127px;
+        width: 127px;
+    }
+</style>
+
+<!-- /.box-header -->
+<div class="box-body">
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th class="">SlNo.</th>
+                <th class="">User Name</th>
+                <th class="">User Email</th>
+                <th class="">User Role</th>
+                <th class="">Status</th>
+                <th class="">Last Login</th>
+
+                <th class=""><a href="~/Registration/NewUser/0" class="btn btn-primary btn-sm pull-right">Create User</a></th>
+            </tr>
+            @if (Model.lstUser.Count() > 0)
+            {
+                foreach (var m in Model.lstUser)
+                {
+                    <tr>
+                        <td class="text-left">@slNo</td>
+                        <td class=""><div class="product-img">    <img src="~/@m.ImageUrl" alt="User Image" class="imgsize"></div>@m.UserName</td>
+                        <th class="">@m.UserEmailAddress</th>
+                        <td class="">
+                            @if (m.RoleId == 1)
+                            {<span class="label label-success">Administrator</span> }
+                            else if (m.RoleId == 2)
+                            { <span class="label label-primary">Agent</span>}
+                        </td>
+                        <td class="">
+                            @if (m.Flag == "A")
+                            {<span class="label label-success">Active</span> }
+                            else
+                            { <span class="label label-danger">De-Active</span>}
+
+                        </td>
+                        <td class="">@m.LastLogin</td>
+						<td class="text-right">
+							@if (m.Flag == "D")
+							{
+								<a href="@Url.Action("AccountFlag", "Registration", new { id = @m.UserId,flag="A" })" class="btn btn-block btn-success pull-right" style="width:70%">Activate</a>
+							}
+							else
+							{
+								<a href="@Url.Action("AccountFlag", "Registration", new { id = @m.UserId,flag="D" })" class="btn btn-block btn-danger pull-right" style="width:70%">De-Activate</a>
+							}
+							<a href="@Url.Action("NewUser", "Registration", new { id = @m.UserId})" class="btn btn-block btn-info pull-right" style="width:70%">Edit</a>
+							
+						</td>
+                    </tr>
+                    slNo++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8">
+                        No Records found.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!-- /.box-body -->
+<div class="row box-body">
+    <div class="col-md-1">
+        <label class="field select">
+            <select id="ddlPageSize" onchange="LoadUserDetail(0)" name="filter-status" class="form-control">
+				<option value="5">5</option>
+				<option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="70">75</option>
+                <option value="100">100</option>
+            </select>
+            <i class="arrow double"></i>
+        </label>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-6 text-right">
+        @if (Model.Pager.EndPage > 1)
+        {
+            <ul class="pagination pagination-sm no-margin pull-right" style="margin:0px 0px;cursor: pointer;">
+                @if (Model.Pager.CurrentPage > 1)
+                {
+                    <li>
+                        <a onclick="LoadUserDetail(0)">First</a>
+                    </li>
+                    <li>
+                        <a onclick="LoadUserDetail(@(Model.Pager.CurrentPage - 1))">Previous</a>
+                    </li>
+                }
+
+                @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                {
+                    <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                        <a onclick="LoadUserDetail(@page);">@page</a>
+                    </li>
+                }
+
+                @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                {
+                    <li>
+                        <a onclick="LoadUserDetail(@Model.Pager.CurrentPage + 1)">Next</a>
+                    </li>
+                    <li>
+                        <a onclick="LoadUserDetail(@Model.Pager.TotalPages)">Last</a>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>
+

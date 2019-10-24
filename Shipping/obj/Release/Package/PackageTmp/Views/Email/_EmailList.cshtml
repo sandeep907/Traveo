@@ -1,0 +1,72 @@
+﻿@model Shipping.ViewModels.Account.IndexEmailModel
+	<div class="table-responsive mailbox-messages">
+		<table class="table table-hover table-striped">
+			<tbody>
+				@foreach (var mail in Model.lstSentEmails)
+				{
+					<tr>
+						<td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td>
+						<td class="mailbox-star"><a><i class="fa fa-star text-yellow"></i></a></td>
+						<td class="mailbox-name"><a>@mail.To</a></td>
+						<td class="mailbox-subject">
+							<b>@mail.Subject</b> - @mail.Body
+						</td>
+						<td class="mailbox-attachment"></td>
+						<td class="mailbox-date">@DateTime.Now-@mail.Date</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<!-- /.table -->
+	</div>
+<div class="row box-body">
+	<div class="col-md-1">
+		<label class="field select">
+			<select id="ddlPageSize" onchange="LoadSentEmails(0)" name="filter-status" class="form-control">
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+			</select>
+			<i class="arrow double"></i>
+		</label>
+	</div>
+	<div class="col-md-4">
+	</div>
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-6 text-right">
+		@if (Model.Pager.EndPage > 1)
+		{
+			<ul class="pagination pagination-sm no-margin pull-right" style="margin:0px 0px;cursor: pointer;">
+				@if (Model.Pager.CurrentPage > 1)
+				{
+					<li>
+						<a onclick="LoadSentEmails(0)">First</a>
+					</li>
+					<li>
+						<a onclick="LoadSentEmails(@(Model.Pager.CurrentPage - 1))">Previous</a>
+					</li>
+				}
+
+				@for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+				{
+					<li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+						<a onclick="LoadSentEmails(@page);">@page</a>
+					</li>
+				}
+
+				@if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+				{
+					<li>
+						<a onclick="LoadSentEmails(@Model.Pager.CurrentPage + 1)">Next</a>
+					</li>
+					<li>
+						<a onclick="LoadSentEmails(@Model.Pager.TotalPages)">Last</a>
+					</li>
+				}
+			</ul>
+		}
+	</div>
+</div>

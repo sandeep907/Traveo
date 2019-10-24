@@ -1,0 +1,77 @@
+﻿@model Shipping.ViewModels.Account.UserViewModel
+<section class="content">
+	<!-- Default box -->
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Index</h3>
+
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+						title="Collapse">
+					<i class="fa fa-minus"></i>
+				</button>
+				<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+					<i class="fa fa-times"></i>
+				</button>
+			</div>
+		</div>
+		@using (Html.BeginForm("AdminAddUser", "Registration", FormMethod.Post, new { @id = "SubmitUser" }))
+		{
+			if (TempData["Message"] != null)
+			{
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Alert!</h4>
+					@Html.Raw(HttpUtility.HtmlDecode(ViewBag.Message)) Wait for Admin Approval.
+				</div>
+
+			}
+			@Html.HiddenFor(m=>m.UserId)
+			<!-- form start -->
+			<div class="row box-body">
+				<div class="col-md-6 form-group ">
+					<label for="UserName">User Name</label>
+					@Html.TextBoxFor(m => m.UserName, new { @name = "UserName", @id = "UserName", @class = "form-control", @placeholder = "User Name", @autocomplete = "off" })
+					@Html.ValidationMessageFor(m => m.UserName, "", new { @class = "label label-danger" })
+
+				</div>
+				<div class="col-md-6 form-group">
+					<label for="UserName">User EmailAddress</label>
+					@Html.TextBoxFor(m => m.UserEmailAddress, new { @name = "UserEmailAddress", @id = "UserEmailAddress", @class = "form-control", @placeholder = "User EmailAddress", @autocomplete = "off" })
+					@Html.ValidationMessageFor(m => m.UserEmailAddress, "", new { @class = "label label-danger" })
+				</div>
+			</div>
+			<div class="row box-body">
+				<div class="col-md-6 form-group">
+					<label for="UserName">Password</label>
+					@Html.PasswordFor(m => m.UserPassword, new { @name = "UserPassword", @id = "UserPassword", @class = "form-control", @autocomplete = "off" })
+					@Html.ValidationMessageFor(m => m.UserPassword, "", new { @class = "label label-danger" })
+				</div>
+				<div class="col-md-6 form-group">
+					<label for="UserName"> confirm Password</label>
+					@Html.PasswordFor(m => m.UserConfirmPassword, new { @name = "UserConfirmPassword", @id = "UserConfirmPassword", @class = "form-control", @autocomplete = "off" })
+					@Html.ValidationMessageFor(m => m.UserConfirmPassword, "", new { @class = "label label-danger" })
+				</div>
+			</div>
+			<div class="row box-body">
+				<div class="col-md-6 form-group">
+					<label for="UserName">Password</label>
+					@Html.HiddenFor(model => model.lstRoles)
+					@Html.DropDownListFor(model => model.RoleId, new SelectList(Model.lstRoles, "ID", "Name", Model.RoleId), optionLabel: "Select Role", htmlAttributes: new { @id = "RegRoleID", @name = "RegRoleID", @class = "form-control" })
+					@Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "label label-danger" })
+				</div>
+				<div class="col-md-6 form-group">
+					<button type="submit" class="btn btn-primary" style="margin-top: 24px;">Submit</button></div>
+			</div>
+			
+
+		}
+		<div class="box-footer">
+			surycourier  private limited
+		</div>
+		<!-- /.box-footer-->
+	</div>
+	<!-- /.box -->
+
+</section>
+

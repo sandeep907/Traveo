@@ -1,0 +1,79 @@
+﻿@{
+    string RoleName = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.RoleName);
+    string AcademicName = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.AcademicName);
+    DateTime LastLoginDateTime = Shipping.Utilities.SessionWrapper.Get<DateTime>(Shipping.Utilities.AppConstant.LastLoginDateTime);
+    string UserName = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.UserName);
+    string UserEmailAddress = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.UserEmailID);
+    string Userimage = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.UserImageUrl);
+    int RoleID = Shipping.Utilities.SessionWrapper.Get<int>(Shipping.Utilities.AppConstant.RoleId);
+
+}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/@Userimage" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@User.Identity.Name</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+            @if (RoleID == 1)
+            {
+                <li>
+                    <a href="~/DashBoard/Index">
+                        <i class="fa fa-th"></i> <span>DashBoard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/Roles/Index">
+                        <i class="fa fa-th"></i> <span>Roles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/Registration/Index">
+                        <i class="fa fa-th"></i> <span>Registration</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/Email/Index">
+                        <i class="fa fa-th"></i> <span>Email</span>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="~/Order/Index">
+                        <i class="fa fa-th"></i> <span>Orders</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="~/Order/Index" class="active">
+                        <i class="fa fa-th"></i> <span>Orders</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

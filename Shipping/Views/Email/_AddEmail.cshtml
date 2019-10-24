@@ -1,0 +1,64 @@
+﻿@model Shipping.ViewModels.Account.EmailViewModel
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Index</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+        @using (Html.BeginForm("AddEmail", "Email", FormMethod.Post, new { @id = "AddEmail" }))
+        {
+            <!-- /.box-header -->
+            <!-- form start -->
+            <div class="modal fade" id="modal-default">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Default Modal</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12 form-group ">
+                                    <label for="UserName">Email Address</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @name = "UserName", @id = "UserNaxxxme", @class = "form-control", @placeholder = "User Name", @autocomplete = "off" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "label label-danger" })
+
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for="UserName">Password</label>
+                                    @Html.TextBoxFor(m => m.Password, new { @name = "UserEmailAddress", @id = "UserxxEmailAddress", @class = "form-control", @placeholder = "User EmailAddress", @autocomplete = "off" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "label label-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+        }
+
+        <div class="box-footer">
+            surycourier  private limited
+        </div>
+        <!-- /.box-footer-->
+    </div>
+    <!-- /.box -->
+</section>

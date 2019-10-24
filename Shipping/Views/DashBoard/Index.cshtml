@@ -1,0 +1,318 @@
+﻿@model Shipping.ViewModels.DashBoard.DashBoardViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <section class="content">
+        <!-- Default box -->
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Index</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+							title="Collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+						<i class="fa fa-times"></i>
+					</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row box-body">
+						<div class="col-lg-4 col-xs-6">
+							<!-- small box -->
+							<div class="small-box" style="background-color:darkgray">
+								<div class="inner">
+									<h3 id="DbVal1">@Model.Badges.TotalOrders</h3>
+
+									<p>Total Orders</p>
+								</div>
+								<div class="icon">
+									<i class="fa fa-fw fa-shopping-cart"></i>
+								</div>
+								<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+							<!-- small box -->
+							<div class="small-box" style="background-color:orange">
+								<div class="inner">
+									<h3 id="DbVal2">@Model.Badges.FreshOrders</h3>
+
+									<p>Fresh Orders</p>
+								</div>
+								<div class="icon">
+									<i class="fa fa-fw fa-refresh"></i>
+								</div>
+								<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+							<!-- small box -->
+							<div class="small-box" style="background-color:yellow">
+								<div class="inner">
+									<h3 id="DbVal3">@Model.Badges.InProgress</h3>
+
+									<p>In Progress</p>
+								</div>
+								<div class="icon">
+									<i class="fa fa-fw fa-truck"></i>
+								</div>
+								<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<div class="row box-body">
+						<div class="col-lg-4 col-xs-6">
+							<!-- small box -->
+							<div class="small-box bg-primary">
+								<div class="inner">
+									<h3  id="DbVal4">@Model.Badges.OutForDelivery</h3>
+
+									<p>Out For Delivery</p>
+								</div>
+								<div class="icon">
+									<i class="fa fa-fw fa-thumbs-up"></i>
+								</div>
+								<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+							<!-- small box -->
+							<div class="small-box bg-green-active">
+								<div class="inner">
+									<h3 id="DbVal5">@Model.Badges.Delivered</h3>
+
+									<p>Completed</p>
+								</div>
+								<div class="icon">
+									<i class="fa fa-fw fa-archive"></i>
+								</div>
+								<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+							<!-- small box -->
+							<div class="small-box bg-red">
+								<div class="inner">
+									<h3  id="DbVal6">@Model.Badges.Returned</h3>
+
+									<p>Returned</p>
+								</div>
+								<div class="icon" style="top: 0px">
+									<i class="glyphicon glyphicon-alert"></i>
+								</div>
+								<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						<!-- ./col -->
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div>
+						<!-- /.box-header -->
+						<div>
+							<div class="row">
+								<div class="col-md-8">
+									<div class="chart-responsive">
+										<canvas id="pieChart" height="250" width="205" style="width: 205px; height: 240px;"></canvas>
+									</div>
+									<!-- ./chart-responsive -->
+								</div>
+								<!-- /.col -->
+								<div class="col-md-4">
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<ul class="chart-legend clearfix">
+										<li><i class="fa fa-circle-o text-gray "></i> Total Orders @Model.Badges.TotalOrders</li>
+										<li><i class="fa fa-circle-o text-yellow"></i> In Progress @Model.Badges.FreshOrders</li>
+										<li><i class="fa fa-circle-o text-light-blue"></i> Shipped @Model.Badges.InProgress</li>
+										<li><i class="fa fa-circle-o text-aqua"></i> Out For Delivery @Model.Badges.OutForDelivery</li>
+										<li><i class="fa fa-circle-o text-green"></i> Completed @Model.Badges.Delivered</li>
+										<li><i class="fa fa-circle-o text-red"></i> Returned @Model.Badges.Returned</li>
+									</ul>
+								</div>
+								<!-- /.col -->
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.box-body -->
+						<!-- /.footer -->
+					</div>
+
+				</div>
+		<!--Row Close -->
+			</div>
+			<div class="row box-body">
+				<div class="col-md-4 col-sm-12">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Recently Added Users</h3>
+
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse">
+									<i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body" style="">
+							<ul class="products-list product-list-in-box" style="overflow: scroll; width: auto; height: 250px; overflow-x:hidden">
+								@foreach (var user in Model.UsersPending)
+								{
+									<li class="item box-body">
+										<div class="product-img">
+											<img src="~/@user.ImageUrl" alt="User Image">
+										</div>
+										<div>
+											@user.UserName
+											<div class="btn-group  pull-right" style="margin-left:4px">
+												<button type="button" class="btn btn-default">Change Role</button>
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+													<span class="caret"></span>
+													<span class="sr-only">Toggle Dropdown</span>
+												</button>
+												<ul class="dropdown-menu" role="menu" style="right: initial">
+													@foreach (var role in Model.lstRoles)
+													{
+														<li><a href="@Url.Action("ChangeRole", "DashBoard", new { id =user.UserId,roleId=role.ID})"> @role.Name</a></li>
+													}
+												</ul>
+											</div>
+											@if (user.Flag == "D")
+											{
+												<a href="@Url.Action("AccountFlag", "DashBoard", new { id = @user.UserId,flag="A" })" class="btn btn-sm  btn-success pull-right">Activate</a>
+											}
+											else
+											{
+												<a href="@Url.Action("AccountFlag", "DashBoard", new { id = @user.UserId,flag="D" })" class="btn btn-sm btn-danger pull-right">De-Activate</a>
+											}
+
+										</div>
+										<div>@user.UserEmailAddress</div>
+									</li>
+									<!-- /.item -->
+								}
+							</ul>
+						</div>
+						<!-- /.box-body -->
+						<!-- /.box-footer -->
+					</div>
+				</div>
+				<div class="col-md-5 col-sm-12">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Recently Added Orders</h3>
+
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse">
+									<i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body" style="">
+							<ul class="products-list product-list-in-box" style="overflow: scroll; width: auto; height: 270px; overflow-x:hidden">
+								@foreach (var order in Model.OrdersList)
+								{
+									<li class="item">
+										<div class="product-img">
+											<img src="~/@order.ImageUrl" alt="Product Image">
+										</div>
+										<div class="product-info">
+											<a href="~/Order/Status/@order.OrderId" class="product-title">
+												@order.OrderNo
+												@if (order.CurrentStatus == 1)
+												{<span class="label label-default">Fresh Order</span> }
+												else if (order.CurrentStatus == 2)
+												{ <span class="label label-info">In Progress</span>}
+												else if (order.CurrentStatus == 3)
+												{ <span class="label label-primary">Out For Delivery</span>}
+												else if (order.CurrentStatus == 4)
+												{ <span class="label label-success">Completed</span>}
+												else if (order.CurrentStatus == 5)
+												{ <span class="label label-danger">Returned</span>}
+											</a>
+											<span class="product-description">
+												@order.Comment
+											</span>
+										</div>
+									</li>
+									<!-- /.item -->
+								}
+							</ul>
+						</div>
+						<!-- /.box-body -->
+						<!-- /.box-footer -->
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<!-- USERS LIST -->
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Online Agents</h3>
+
+							<div class="box-tools pull-right">
+								<span class="label label-danger">@Model.UsersPending.Where(m => m.IsLogin == 1).Count() Agents</span>
+								<button type="button" class="btn btn-box-tool" data-widget="collapse">
+									<i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove">
+									<i class="fa fa-times"></i>
+								</button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body no-padding">
+							<ul class="users-list clearfix">
+								@foreach (var user in Model.UsersPending.Where(m => m.IsLogin == 1))
+								{
+									<li>
+										<img src="~/@user.ImageUrl" alt="User Image">
+										<a class="users-list-name" href="#">@user.UserName</a>
+										<span class="users-list-date">Today</span>
+									</li>
+								}
+							</ul>
+							<!-- /.users-list -->
+						</div>
+						<!-- /.box-footer -->
+					</div>
+					<!--/.box -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<div class="box-footer">
+				surycourier  private limited
+			</div>
+			<!-- /.box-footer-->
+		</div>
+        <!-- /.box -->
+    </section>
+
+</body>
+</html>

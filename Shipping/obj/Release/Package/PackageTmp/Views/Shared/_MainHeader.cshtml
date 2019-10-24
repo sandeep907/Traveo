@@ -1,0 +1,78 @@
+﻿@{
+    string RoleName = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.RoleName);
+    string AcademicName = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.AcademicName);
+    DateTime LastLoginDateTime = Shipping.Utilities.SessionWrapper.Get<DateTime>(Shipping.Utilities.AppConstant.LastLoginDateTime);
+    string UserName = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.UserName);
+    string UserEmailAddress = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.UserEmailID);
+       string Userimage = Shipping.Utilities.SessionWrapper.Get<string>(Shipping.Utilities.AppConstant.UserImageUrl);
+	int RoleID = Shipping.Utilities.SessionWrapper.Get<int>(Shipping.Utilities.AppConstant.RoleId);
+}
+
+<header class="main-header">
+    <!-- Logo -->
+    <a href="~/DashBoard/Index" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>S</b>C</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Surya</b>Courier Services</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+	<nav class="navbar navbar-static-top">
+		<!-- Sidebar toggle button-->
+		<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</a>
+			<div class="navbar-custom-menu">
+			
+				<ul class="nav navbar-nav">
+					@if (RoleID == 1)
+					{
+						<li class="dropdown user user-menu">
+							<div class="input-group" style="width:250px;margin-top: 7px;">
+								<input type="text" name="q" class="form-control" placeholder="Enter Consignee No" style="height: 36px" autocomplete="off" id="consigneeindexsearch">
+								<span class="input-group-btn" id="cnsearch-btn1" >
+									<button type="button" name="search" class="btn btn-flat" style="height: 36px">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
+						</li>
+					}
+						<li class="dropdown user user-menu">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<img src="~/@Userimage" class="user-image" alt="User Image">
+								<span class="hidden-xs">@User.Identity.Name</span>
+							</a>
+							<ul class="dropdown-menu">
+								<!-- User image -->
+								<li class="user-header">
+									<img src="~/@Userimage" class="img-circle" alt="User Image">
+
+									<p>
+										@User.Identity.Name - @RoleName
+										<small>Lastlogin:@LastLoginDateTime</small>
+									</p>
+								</li>
+								<!-- Menu Body -->
+								<!-- Menu Footer-->
+								<li class="user-footer">
+									<div class="pull-left">
+										<a href="#" class="btn btn-default btn-flat">Profile</a>
+									</div>
+									<div class="pull-right">
+										<a href="~/Account/Logout" class="btn btn-default btn-flat">Sign out</a>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<!-- Control Sidebar Toggle Button -->
+						<li>
+							<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+						</li>
+					</ul>
+			</div>
+	</nav>
+</header>

@@ -1,0 +1,95 @@
+﻿@model Shipping.ViewModels.Orders.OrderSearchViewModel
+@{
+	int RoleID = Shipping.Utilities.SessionWrapper.Get<int>(Shipping.Utilities.AppConstant.RoleId);
+}
+@using (Html.BeginForm("ExportToExcel", "Order", FormMethod.Post))
+{
+	<section class="content">
+		<!-- Default box -->
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Orders</h3>
+
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+							title="Collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+						<i class="fa fa-times"></i>
+					</button>
+				</div>
+			</div>
+			<section>
+				@if (ViewBag.Message != null)
+				{
+					<div class="row box-body">
+						<div class="col-md-12">
+							@Html.Raw(HttpUtility.HtmlDecode(ViewBag.Message))
+						</div>
+					</div>
+				}
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<div class="row">
+									<div class="col-md-2">
+										@if (RoleID == 1)
+										{
+											<input type="text" class="form-control" placeholder="Search Order No" id="ORorderNo" autocomplete="off">
+										}
+										else
+										{
+											<input type="text" class="form-control" placeholder="Search Order No" id="ORorderNo" autocomplete="off" disabled="disabled">
+
+										}
+									</div>
+									<div class="col-md-2">
+										<input type="text" class="form-control" placeholder="Search Consignee Name" id="ORconsigneeName" autocomplete="off">
+									</div>
+									<div class="col-md-2">
+										<input type="text" class="form-control" placeholder="Search Agent Name" id="ORagentName" autocomplete="off">
+									</div>
+									<div class="col-md-2">
+										<input type="text" class="form-control" placeholder="Search Consignee No" id="ORconsgnNo" autocomplete="off">
+									</div>
+
+									<div class="col-md-2">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" class="form-control pull-right reservation" id="ORdateRange">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="input-group date">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" class="form-control pull-right datepicker" id="ORdate">
+										</div>
+									</div>
+
+								</div>
+								<br />
+
+								@Html.Hidden("null", "", new { @id = "OrdrStatusID" })
+							</div>
+							<div id="dvorderlist">
+								@Html.Partial("_OrdersList", Model)
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="box-footer">
+				surycourier  private limited
+			</div>
+			<!-- /.box-footer-->
+		</div>
+		<!-- /.box -->
+
+	</section>
+}
