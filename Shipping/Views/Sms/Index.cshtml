@@ -1,0 +1,79 @@
+﻿@model  Shipping.ViewModels.Sms.ConfigurationSettings
+
+<h2>TheTexting SMS GateWay Demo</h2>
+<style type="text/css">
+    .required:after {
+        padding-left: 100px;
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+@Html.ValidationSummary(true, "Correct The Errors first.")
+@using (Html.BeginForm("SendSMS", "Sms", FormMethod.Post))
+{
+
+    <div>
+        <fieldset>
+            <legend>Account Information</legend>
+            <div>
+                <h3>Note: all the fields with (*) are required fields.</h3>
+
+
+            </div>
+            <div>
+                @Html.LabelFor(model => model.API_KEY, new { @class = "required" })
+            </div>
+            <div>
+
+                @Html.TextBoxFor(model => model.API_KEY)
+                @Html.ValidationMessageFor(model => model.API_KEY)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.API_SECRET, new { @class = "required" })
+            </div>
+            <div>
+                @Html.TextBoxFor(model => model.API_SECRET)
+                @Html.ValidationMessageFor(model => model.API_SECRET)
+            </div>
+            <div>
+
+                @Html.LabelFor(a => a.To_Number, new { @class = "required" })
+
+
+            </div>
+            <div>
+
+                @Html.TextBoxFor(a => a.To_Number)
+
+
+                @Html.ValidationMessageFor(a => a.To_Number)
+            </div>
+            <div>
+                @Html.LabelFor(a => a.TextMessage, new { @class = "required" })
+
+
+            </div>
+            <div>
+                @Html.TextAreaFor(a => a.TextMessage, new { @Value = "test" })
+
+                @Html.ValidationMessageFor(a => a.TextMessage)
+            </div>
+
+            <br />
+
+
+            <input id="Submit" type="submit" value="SendSMS" />
+            <br /><br />
+            <h4 style="display:inline; color:red;">
+                Note:
+                <p style="display:inline;">Number must contain the country code like for us we have 1-3306807200</p>
+            </h4>
+
+
+        </fieldset>
+
+
+    </div>
+
+}
