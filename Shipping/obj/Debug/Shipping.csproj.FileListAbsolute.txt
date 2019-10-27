@@ -244,6 +244,7 @@ C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\roslyn\vbc.exe.config
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\roslyn\vbc.rsp
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\roslyn\VBCSCompiler.exe
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Antlr3.Runtime.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\AutoMapper.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\ClosedXML.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\DocumentFormat.OpenXml.dll
@@ -267,6 +268,7 @@ C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.IO.Packaging.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Helpers.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Mvc.dll
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Optimization.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Razor.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Webpages.Deployment.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Webpages.dll
@@ -274,6 +276,8 @@ C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Webpages.Razor.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Unity.Abstractions.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Unity.Container.dll
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Unity.Mvc5.dll
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\WebGrease.dll
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Antlr3.Runtime.pdb
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\AutoMapper.xml
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\ClosedXML.pdb
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\ClosedXML.xml
@@ -291,6 +295,7 @@ C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Microsoft.Owin.Security.Cookies.x
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Newtonsoft.Json.xml
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Optimization.xml
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Unity.Abstractions.pdb
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Unity.Container.pdb
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Razor.xml

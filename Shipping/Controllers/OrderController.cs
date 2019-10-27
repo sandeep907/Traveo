@@ -138,7 +138,6 @@ namespace Shipping.Controllers
 
             model.lstOrders = model.lstOrders.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize).ToList();
             model.Pager = pager;
-
             return PartialView("_OrdersList", model);
         }
         public ActionResult NewOrder(int id)

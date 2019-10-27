@@ -8,7 +8,7 @@ using Shipping.ViewModels.DashBoard;
 
 namespace Shipping.Controllers
 {
-    [Authorize(Roles ="1")]
+    [Authorize(Roles = "1")]
     public class DashBoardController : BaseController
     {
         public readonly IDashBoardService _iDashBoardService;
@@ -25,18 +25,21 @@ namespace Shipping.Controllers
         {
             DashBoardViewModel model = new DashBoardViewModel();
             var res = HttpContext.User.Identity.Name;
-            var user = _iUserService.GetAll().Where(m =>m.UserEmailAddress== res).FirstOrDefault();
+            var user = _iUserService.GetAll().Where(m => m.UserEmailAddress == res).FirstOrDefault();
             AssignSessionVariables(user);
-            model = SessionWrapper.Get<DashBoardViewModel>(AppConstant.DashBoardViewModel);
-            if (model == null)
+            if (SessionWrapper.Get<DashBoardViewModel>(AppConstant.DashBoardViewModel) != null)
+            {
+                model = SessionWrapper.Get<DashBoardViewModel>(AppConstant.DashBoardViewModel);
+            }
+            else
             {
                 model.Badges = _iDashBoardService.GetBadges();
                 model.UsersPending = _iDashBoardService.GetUsers().ToList();
                 model.OrdersList = _iDashBoardService.GetOrders().ToList();
                 model.lstRoles = _iDataService.GetRoles();
-                SessionWrapper.Set(AppConstant.DashBoardViewModel,model);
+                SessionWrapper.Set(AppConstant.DashBoardViewModel, model);
             }
-                return View(model);
+            return View(model);
         }
 
         // GET: DashBoard/Details/5

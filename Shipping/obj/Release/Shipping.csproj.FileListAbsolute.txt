@@ -206,3 +206,8 @@ C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\ClosedXML.pdb
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\ClosedXML.xml
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\DocumentFormat.OpenXml.xml
 C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\ExcelNumberFormat.xml
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Antlr3.Runtime.dll
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Optimization.dll
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\WebGrease.dll
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\Antlr3.Runtime.pdb
+C:\Users\ReddyPC\Desktop\Shipping\Shipping\bin\System.Web.Optimization.xml

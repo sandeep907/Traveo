@@ -3,7 +3,7 @@
 <h2>TheTexting SMS GateWay Demo</h2>
 <style type="text/css">
     .required:after {
-        padding-left: 10px;
+        padding-left: 100px;
         content: "*";
         font-weight: bold;
         color: red;
@@ -12,7 +12,6 @@
 @Html.ValidationSummary(true, "Correct The Errors first.")
 @using (Html.BeginForm("SendSMS", "Sms", FormMethod.Post))
 {
-
     <div>
         <fieldset>
             <legend>Account Information</legend>
@@ -75,5 +74,4 @@
 
 
     </div>
-
 }

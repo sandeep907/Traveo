@@ -18,6 +18,7 @@ $(function () {
         $('#orderSearch').val();
         delay(function () {
             var pageSizeId = ($('#ddlPageSize').val() == "") ? 10 : $('#ddlPageSize').val();
+            if (pageSizeId == null) { pageSizeId = 10; }
             $('#dvorderlist').html('');
             $.ajax({
                 url: RootUrl + "Order/Search",
@@ -39,8 +40,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -52,6 +53,7 @@ $(function () {
         $('#orderSearch').val()
         delay(function () {
             var pageSizeId = ($('#ddlPageSize').val() == "") ? 10 : $('#ddlPageSize').val();
+            if (pageSizeId == null) { pageSizeId = 10; }
             $('#dvorderlist').html('');
             $.ajax({
                 url: RootUrl + "Order/Search",
@@ -73,8 +75,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -86,6 +88,7 @@ $(function () {
         $('#orderSearch').val()
         delay(function () {
             var pageSizeId = ($('#ddlPageSize').val() == "") ? 10 : $('#ddlPageSize').val();
+            if (pageSizeId == null) { pageSizeId = 10; }
             $('#dvorderlist').html('');
             $.ajax({
                 url: RootUrl + "Order/Search",
@@ -107,8 +110,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -120,6 +123,7 @@ $(function () {
         $('#orderSearch').val()
         delay(function () {
             var pageSizeId = ($('#ddlPageSize').val() == "") ? 10 : $('#ddlPageSize').val();
+            if (pageSizeId == null) { pageSizeId = 10; }
             $('#dvorderlist').html('');
             $.ajax({
                 url: RootUrl + "Order/Search",
@@ -141,8 +145,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -154,6 +158,7 @@ $(function () {
         $('#orderSearch').val()
         delay(function () {
             var pageSizeId = ($('#ddlPageSize').val() == "") ? 10 : $('#ddlPageSize').val();
+            if (pageSizeId == null) { pageSizeId = 10; }
             $('#dvorderlist').html('');
             $.ajax({
                 url: RootUrl + "Order/Search",
@@ -175,8 +180,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -188,6 +193,7 @@ $(function () {
         $('#orderSearch').val()
         delay(function () {
             var pageSizeId = ($('#ddlPageSize').val() == "") ? 10 : $('#ddlPageSize').val();
+            if (pageSizeId == null) { pageSizeId = 10; }
             $('#dvorderlist').html('');
             $.ajax({
                 url: RootUrl + "Order/Search",
@@ -209,15 +215,15 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
     }));
     //Butoon click
     $('#btFresh').on("click", (function (e) {
-  
+
         $('#orderSearch').val();
         delay(function () {
             var pageSizeId = ($('#ddlPageSize').val() == "") ? 10 : $('#ddlPageSize').val();
@@ -243,8 +249,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -275,8 +281,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -308,8 +314,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -341,8 +347,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -374,8 +380,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -405,8 +411,8 @@ $(function () {
                 },
                 error: function () {
                     alert("An error has occured!!!");
-                    NProgress.done();
-                    NProgress.remove();
+                   
+                
                 }
             });
         }, 500);
@@ -437,8 +443,6 @@ function LoadOrderDetail(pageId) {
         },
         error: function () {
             alert("An error has occured!!!");
-            NProgress.done();
-            NProgress.remove();
         }
     });
 }
